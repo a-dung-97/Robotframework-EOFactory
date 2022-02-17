@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  Test Buffer tool.
+Documentation  Test Kmeans tool.
 Library  Selenium2Library
 Variables  env.py
 Test Teardown  Close Browser
@@ -16,12 +16,6 @@ ${vector_toolkit_icon}    id:vector_toolkitIcon
 ${type}     id:vectortools_typeList_buffer
 ${name}     test buffer
 ${vector}   vector_clip_1
-${distance}     id:vectortools_buffer_distance
-${resolution}   id:vectortools_buffer_resolution
-${quadsegs}     id:vectortools_buffer_quadsegs
-${cap_style}    id:vectortools_buffer_capStyle
-${join_style}   id:vectortools_buffer_joinStyle
-${mitre_limit}  id:vectortools_buffer_mitreLimit
 
 ${confirm_btn}  id:vectorTool_confirmButton
 
