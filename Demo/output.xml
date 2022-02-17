@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.5 on win32)" generated="20220210 10:39:45.854" rpa="false" schemaversion="2">
+<suite id="s1" name="UsingTemplate" source="C:\Users\skymap\PycharmProjects\RobotFramework\Demo\UsingTemplate.robot">
+<test id="s1-t1" name="Validate Availability">
+<kw name="Open URL">
+<arg>${URL1}</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220210 10:39:46.251" level="INFO">Opening browser 'Chrome' to base url 'http://montrealgazette.com/'.</msg>
+<status status="PASS" starttime="20220210 10:39:46.250" endtime="20220210 10:40:04.965"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220210 10:40:04.966" endtime="20220210 10:40:07.108"/>
+</kw>
+<status status="PASS" starttime="20220210 10:39:46.250" endtime="20220210 10:40:07.109"/>
+</kw>
+<kw name="Open URL">
+<arg>${URL2}</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220210 10:40:07.111" level="INFO">Opening browser 'Chrome' to base url 'https://www.usatoday.com/'.</msg>
+<status status="PASS" starttime="20220210 10:40:07.111" endtime="20220210 10:40:16.327"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220210 10:40:16.328" endtime="20220210 10:40:18.470"/>
+</kw>
+<status status="PASS" starttime="20220210 10:40:07.110" endtime="20220210 10:40:18.471"/>
+</kw>
+<kw name="Open URL">
+<arg>${URL3}</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220210 10:40:18.473" level="INFO">Opening browser 'Chrome' to base url 'http://www.foxnews.com/'.</msg>
+<status status="PASS" starttime="20220210 10:40:18.473" endtime="20220210 10:40:25.568"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220210 10:40:25.569" endtime="20220210 10:40:27.735"/>
+</kw>
+<status status="PASS" starttime="20220210 10:40:18.472" endtime="20220210 10:40:27.736"/>
+</kw>
+<kw name="Open URL">
+<arg>${URL4}</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220210 10:40:27.738" level="INFO">Opening browser 'Chrome' to base url 'http://www.cnn.com/'.</msg>
+<status status="PASS" starttime="20220210 10:40:27.738" endtime="20220210 10:40:36.304"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220210 10:40:36.304" endtime="20220210 10:40:38.464"/>
+</kw>
+<status status="PASS" starttime="20220210 10:40:27.737" endtime="20220210 10:40:38.465"/>
+</kw>
+<kw name="Open URL">
+<arg>${URL5}</arg>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220210 10:40:38.467" level="INFO">Opening browser 'Chrome' to base url 'https://ca.reuters.com/'.</msg>
+<status status="PASS" starttime="20220210 10:40:38.466" endtime="20220210 10:40:48.015"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220210 10:40:48.015" endtime="20220210 10:40:50.155"/>
+</kw>
+<status status="PASS" starttime="20220210 10:40:38.465" endtime="20220210 10:40:50.156"/>
+</kw>
+<status status="PASS" starttime="20220210 10:39:46.248" endtime="20220210 10:40:50.157"/>
+</test>
+<test id="s1-t2" name="Validate_Availability">
+<kw name="Open URL">
+<arg>Open URLs In New Tab</arg>
+<arg>${URL1}</arg>
+<arg>${URL2}</arg>
+<arg>${URL3}</arg>
+<arg>${URL4}</arg>
+<arg>${URL5}</arg>
+<msg timestamp="20220210 10:40:50.163" level="FAIL">Keyword 'Open URL' expected 1 argument, got 6.</msg>
+<status status="FAIL" starttime="20220210 10:40:50.162" endtime="20220210 10:40:50.163"/>
+</kw>
+<status status="FAIL" starttime="20220210 10:40:50.161" endtime="20220210 10:40:50.163">Keyword 'Open URL' expected 1 argument, got 6.</status>
+</test>
+<doc>Using template</doc>
+<status status="FAIL" starttime="20220210 10:39:45.856" endtime="20220210 10:40:50.167"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="1" skip="0" id="s1" name="UsingTemplate">UsingTemplate</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220210 10:40:50.160" level="WARN">Multiple test cases with name 'Validate_Availability' executed in test suite 'UsingTemplate'.</msg>
+</errors>
+</robot>

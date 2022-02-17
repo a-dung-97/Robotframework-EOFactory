@@ -1,0 +1,7 @@
+--test (-t)
+--include (-i)
+--exclude (-e)
+--suite (-s)
+
+robot --rerunfailed output.xml .
+robot --rerunfailedsuites output.xml .
