@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  Test Align Pixel tool.
+Documentation  Test Reclassification tool.
 Library  Selenium2Library
 Variables  env.py
 Test Teardown  Close Browser
@@ -12,14 +12,13 @@ ${wks}  id:workspace_recent_workShare_item_0
 ${imagery_menu}   id:introduction-Imagery
 ${imagery_toolkit_icon}    id:image_toolBar_ardButton
 
-#input
-${type}     id:ardtools_typeList_align_pixel
-${name}     align_pixel_result
+${type}     id:ardtools_typeList_reclassification
+${name}     reclassification_result
+${tool_setting}     id:tool_setting
 ${confirm_btn}  id:ardtools_confirmButton
-${confim_paycost}     id:notificationTokenDialog_confirmButton
 
 *** Test Cases ***
-AlignPixel
+Reclassification
 #login to page
     open browser    ${LOGIN_URL}    chrome
     wait until element is visible  ${username}  5
@@ -37,24 +36,23 @@ AlignPixel
     click element  ${imagery_menu}
     sleep  1
 
-# start use align pixel
+# start use reclassification
     wait until element is visible  ${imagery_toolkit_icon}     5
     click element  ${imagery_toolkit_icon}
     wait until element is visible  class:ardTool_typeSelector     5
     click element  class:ardTool_typeSelector
     sleep  1
+    wait until element is visible   ${type}  10
     click element  ${type}
 
 #    type input
     input text  id:ardtools_nameInput  ${name}
 
-    click element  //*[@id="ardtools_alginPixel_alignImagery"]/div/div/div[1]
-    input text  id:ardtools_alginPixel_alignImagery_imageSelector_searchInput   align_pixel_image
-    click element  id:align_pixel_image
+    click element  //*[@id="ardtools_reclassification_rasterResult"]/div/div/div[1]
+    input text  id:ardtools_reclassification_rasterResult_imageSelector_searchInput   result_1
+    click element  id:result_1
 
-    click element  //*[@id="ardtools_alginPixel_baseImagery"]/div/div/div[1]
-    input text  id:ardtools_alginPixel_baseImagery_imageSelector_searchInput    align_pixel_ref_image
-    click element  id:align_pixel_ref_image
+    click button  ${tool_setting}
 
     click button  ${confirm_btn}
 

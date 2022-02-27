@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  Test Align Pixel tool.
+Documentation  Test Cloud free mosaic tool.
 Library  Selenium2Library
 Variables  env.py
 Test Teardown  Close Browser
@@ -12,14 +12,12 @@ ${wks}  id:workspace_recent_workShare_item_0
 ${imagery_menu}   id:introduction-Imagery
 ${imagery_toolkit_icon}    id:image_toolBar_ardButton
 
-#input
-${type}     id:ardtools_typeList_align_pixel
-${name}     align_pixel_result
+${type}     id:ardtools_typeList_cloud_free_mosaic
+${name}     cloud_free_mosaic_result
 ${confirm_btn}  id:ardtools_confirmButton
-${confim_paycost}     id:notificationTokenDialog_confirmButton
 
 *** Test Cases ***
-AlignPixel
+CloudFreeMosaic
 #login to page
     open browser    ${LOGIN_URL}    chrome
     wait until element is visible  ${username}  5
@@ -37,7 +35,7 @@ AlignPixel
     click element  ${imagery_menu}
     sleep  1
 
-# start use align pixel
+# start use cloud free mosaic
     wait until element is visible  ${imagery_toolkit_icon}     5
     click element  ${imagery_toolkit_icon}
     wait until element is visible  class:ardTool_typeSelector     5
@@ -48,13 +46,14 @@ AlignPixel
 #    type input
     input text  id:ardtools_nameInput  ${name}
 
-    click element  //*[@id="ardtools_alginPixel_alignImagery"]/div/div/div[1]
-    input text  id:ardtools_alginPixel_alignImagery_imageSelector_searchInput   align_pixel_image
-    click element  id:align_pixel_image
+    click element  //*[@id="ardtool_cloudFreeMosaic_images"]/div/div/div[1]
+    input text  id:ardtool_cloudFreeMosaic_images_imageSelector_searchInput   mosaic_1
+    click element  id:mosaic_1
+    input text  id:ardtool_cloudFreeMosaic_images_imageSelector_searchInput   mosaic_2
+    click element  id:mosaic_2
+    press keys  //*[@id="ardtool_cloudFreeMosaic_images"]/div/div/div[1]    TAB
 
-    click element  //*[@id="ardtools_alginPixel_baseImagery"]/div/div/div[1]
-    input text  id:ardtools_alginPixel_baseImagery_imageSelector_searchInput    align_pixel_ref_image
-    click element  id:align_pixel_ref_image
+    click element  id:option_2
 
     click button  ${confirm_btn}
 

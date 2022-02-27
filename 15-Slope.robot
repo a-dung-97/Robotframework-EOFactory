@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  Test Align Pixel tool.
+Documentation  Test Slope tool.
 Library  Selenium2Library
 Variables  env.py
 Test Teardown  Close Browser
@@ -13,13 +13,13 @@ ${imagery_menu}   id:introduction-Imagery
 ${imagery_toolkit_icon}    id:image_toolBar_ardButton
 
 #input
-${type}     id:ardtools_typeList_align_pixel
-${name}     align_pixel_result
+${type}     id:ardtools_typeList_slope
+${name}     slope_result
 ${confirm_btn}  id:ardtools_confirmButton
 ${confim_paycost}     id:notificationTokenDialog_confirmButton
 
 *** Test Cases ***
-AlignPixel
+Slope
 #login to page
     open browser    ${LOGIN_URL}    chrome
     wait until element is visible  ${username}  5
@@ -37,7 +37,7 @@ AlignPixel
     click element  ${imagery_menu}
     sleep  1
 
-# start use align pixel
+# start use slope
     wait until element is visible  ${imagery_toolkit_icon}     5
     click element  ${imagery_toolkit_icon}
     wait until element is visible  class:ardTool_typeSelector     5
@@ -48,13 +48,9 @@ AlignPixel
 #    type input
     input text  id:ardtools_nameInput  ${name}
 
-    click element  //*[@id="ardtools_alginPixel_alignImagery"]/div/div/div[1]
-    input text  id:ardtools_alginPixel_alignImagery_imageSelector_searchInput   align_pixel_image
-    click element  id:align_pixel_image
-
-    click element  //*[@id="ardtools_alginPixel_baseImagery"]/div/div/div[1]
-    input text  id:ardtools_alginPixel_baseImagery_imageSelector_searchInput    align_pixel_ref_image
-    click element  id:align_pixel_ref_image
+    click element  //*[@id="ardtools_slope_image"]/div/div/div[1]
+    input text  id:ardtools_slope_image_imageSelector_searchInput   dem
+    click element  id:dem
 
     click button  ${confirm_btn}
 

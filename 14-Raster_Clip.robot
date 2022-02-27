@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation  Test Align Pixel tool.
+Documentation  Test Raster Clip tool.
 Library  Selenium2Library
 Variables  env.py
 Test Teardown  Close Browser
@@ -12,14 +12,12 @@ ${wks}  id:workspace_recent_workShare_item_0
 ${imagery_menu}   id:introduction-Imagery
 ${imagery_toolkit_icon}    id:image_toolBar_ardButton
 
-#input
-${type}     id:ardtools_typeList_align_pixel
-${name}     align_pixel_result
+${type}     id:ardtools_typeList_convert_uint8
+${name}     visual_result
 ${confirm_btn}  id:ardtools_confirmButton
-${confim_paycost}     id:notificationTokenDialog_confirmButton
 
 *** Test Cases ***
-AlignPixel
+RasterClip
 #login to page
     open browser    ${LOGIN_URL}    chrome
     wait until element is visible  ${username}  5
@@ -37,7 +35,7 @@ AlignPixel
     click element  ${imagery_menu}
     sleep  1
 
-# start use align pixel
+# start use visual imagery
     wait until element is visible  ${imagery_toolkit_icon}     5
     click element  ${imagery_toolkit_icon}
     wait until element is visible  class:ardTool_typeSelector     5
@@ -48,13 +46,12 @@ AlignPixel
 #    type input
     input text  id:ardtools_nameInput  ${name}
 
-    click element  //*[@id="ardtools_alginPixel_alignImagery"]/div/div/div[1]
-    input text  id:ardtools_alginPixel_alignImagery_imageSelector_searchInput   align_pixel_image
-    click element  id:align_pixel_image
-
-    click element  //*[@id="ardtools_alginPixel_baseImagery"]/div/div/div[1]
-    input text  id:ardtools_alginPixel_baseImagery_imageSelector_searchInput    align_pixel_ref_image
-    click element  id:align_pixel_ref_image
+    click element  //*[@id="ardtools_clip_image"]/div/div/div[1]
+    input text  id:ardtools_clip_image_imageSelector_searchInput   image
+    click element  id:image
+    click element  //*[@id="ardtools_visual_referenceImage"]/div/div/div[1]
+    input text  id:ardtools_visual_referenceImage_imageSelector_searchInput   visual_ref_image
+    click element  id:visual_ref_image
 
     click button  ${confirm_btn}
 
