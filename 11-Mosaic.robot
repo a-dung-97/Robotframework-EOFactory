@@ -1,67 +1,26 @@
 *** Settings ***
 Documentation  Test Mosaic tool.
-Library  Selenium2Library
-Variables  env.py
+Resource  ./Login.robot
+Resource    ./Imagery/PageObject/Page.robot
 Test Teardown  Close Browser
 
 *** Variables ***
-${username}    id:email
-${password}    id:password
-${btn}   id:login
-${wks}  id:workspace_recent_workShare_item_0
-${imagery_menu}   id:introduction-Imagery
-${imagery_toolkit_icon}    id:image_toolBar_ardButton
-
-${type}     id:ardtools_typeList_mosaic
 ${name}     mosaic_result
-${confirm_btn}  id:ardtools_confirmButton
+${image_1}  mosaic_1
+${image_2}  mosaic_2
 
 *** Test Cases ***
 Mosaic
-#login to page
-    open browser    ${LOGIN_URL}    chrome
-    wait until element is visible  ${username}  5
-    maximize browser window
-    input text  ${username}     ${USER_EMAIL}
-    input text  ${password}     ${USER_PASSWORD}
-    click button  ${btn}
-
-#select wks
-    wait until element is visible  ${wks}   10
-    click element   ${wks}
-
-#click imagery menu
-    wait until element is visible  ${imagery_menu}    5
-    click element  ${imagery_menu}
-    sleep  1
-
-# start use mosaic
-    wait until element is visible  ${imagery_toolkit_icon}     5
-    click element  ${imagery_toolkit_icon}
-    wait until element is visible  class:ardTool_typeSelector     5
-    click element  class:ardTool_typeSelector
-    sleep  1
-    click element  ${type}
-
-#    type input
-    input text  id:ardtools_nameInput  ${name}
-
-    click element  //*[@id="ardtools_mosaic_images"]/div/div/div[1]
-    input text  id:ardtools_mosaic_images_imageSelector_searchInput   mosaic_1
-    click element  id:mosaic_1
-    input text  id:ardtools_mosaic_images_imageSelector_searchInput   mosaic_2
-    click element  id:mosaic_2
-
-    click button  ${confirm_btn}
+    Login To Page And Open Workspace
+    Click Imagery Menu
+    Click Imagery Toolkit
+    Select Tool     ${mosaic}
+    Type Name   ${name}
+    Select Multiple Images  mosaic  ${image_1}  ${image_2}
+    Click Submit Button
 
 *** Keywords ***
-Type Username
-    [Arguments]  ${_username}
-    input text  ${username}  ${_username}
 
-Type Password
-    [Arguments]  ${_password}
-    input text  ${password}     ${_password}
 
 
 

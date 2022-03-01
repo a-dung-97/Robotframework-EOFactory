@@ -18,5 +18,5 @@ USER_PASSWORD = "admin"
 APP_URL = "http://localhost:8080"
 LOGIN_URL = fr'https://test.eofactory.ai:3443/signIn.html?redirect={APP_URL}/authentication?token='
 # LOGIN_URL = "https://eofactory.ai/signIn.html?redirect=http://localhost:8080/authentication?token="
-# WORKSPACE_ID = "a8d50fe1-77b3-4567-8108-d804fccd9087"
+WORKSPACE_ID = "c047f8ad-947b-40a8-9b9d-1cb0464d3d38"
 WORKSPACE_NAME = 'MinhNgoc'
