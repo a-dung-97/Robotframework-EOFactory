@@ -11,3 +11,10 @@ confirm_button = "id:tableTool_confirmButton"
 
 # Accuracy Report
 ref_image_search = "id:tabletools_accuracy_report_reference_image_imageSelector_searchInput"
+
+# Join
+# Tabulate Area
+mask_value = "id:tabletools_tabulate_area_mask_value"
+mask_image_search = "id:tabletools_tabulate_area_mask_image_imageSelector_searchInput"
+
+# Zonal Statistics as Table

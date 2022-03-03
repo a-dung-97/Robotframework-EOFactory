@@ -1,6 +1,6 @@
 *** Settings ***
 Library  Selenium2Library
-Variables  ./Table/PageObject/Locators.py
+Variables  ./Table_Locators.py
 
 *** Keywords ***
 Click Table Menu
@@ -25,8 +25,14 @@ Type Name
 Select Image
     [Arguments]      ${type}    ${image_name}
     click element   //*[@id="tabletools_${type}_image"]/div/div/div[1]
-    input text  tabletools_${type}_image_imageSelector_searchInput   ${image_name}
+    input text  id:tabletools_${type}_image_imageSelector_searchInput   ${image_name}
     click element  id:${image_name}
+
+Select Vector
+    [Arguments]  ${vector}
+    click element  id:tableTool_vectorSelector
+    click element  id:${vector}
+    sleep  1
 
 Click Submit Button
     click button  ${confirm_button}

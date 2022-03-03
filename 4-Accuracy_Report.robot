@@ -17,13 +17,15 @@ CloudFreeMosaic
     Select Tool     ${accuracy_report}
     Type Name   ${name}
     Select Image  accuracy_report   ${image}
-
-#    Click Submit Button
+    Select Reference Image  ${ref_image}
+    Click Submit Button
 
 *** Keywords ***
 Select Reference Image
     [Arguments]     ${image}
-    click element  ${ref_image_search}
+    click element  //*[@id="tabletools_accuracy_report_reference_image"]/div/div/div[1]
+    input text  id:tabletools_accuracy_report_reference_image_imageSelector_searchInput     ${image}
+    click element  id:${image}
 
 
 
