@@ -1,8 +1,6 @@
 *** Settings ***
 Library  Selenium2Library
-Variables  ./Locators.py
-
-*** Variables ***
+Variables  ./Vector_Locators.py
 
 *** Keywords ***
 Click Vector Menu
